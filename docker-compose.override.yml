@@ -1,0 +1,6 @@
+services:
+  laravel.test:
+    build:
+      context: ./vendor/laravel/sail/runtimes/8.2
+      args:
+        - WITH_MYSQL=true

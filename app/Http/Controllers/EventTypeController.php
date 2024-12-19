@@ -12,6 +12,9 @@ class EventTypeController extends Controller
 {
     public function create(Request $request)
     {
+        if (!auth()->check() || auth()->user()->cannot('create', EventType::class)) {
+            return response()->json(['message' => 'No autorizado'], 403);
+        }
         $validator = Validator::make($request->all(), [
             'description' => 'required',
         ]);

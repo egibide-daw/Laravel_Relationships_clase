@@ -26,7 +26,7 @@ Route::controller(EventController::class)->group(function () {
 });
 Route::controller(EventTypeController::class)->group(function () {
     Route::get('types', 'listTypes');
-    Route::post('type', 'create');
+    Route::post('type', 'create')->middleware('auth:api');
     Route::get('type/{type}', 'events');
 });
 
